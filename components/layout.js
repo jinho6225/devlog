@@ -6,7 +6,7 @@ export const siteTitle = 'Devlog'
 
 export default function Layout({ children, home }) {
     return (
-    <div className="max-w-xl py-0 px-4 mx-auto mt-12 mb-24">
+    <div className="max-w-3xl py-4 px-4 mx-auto mt-12 mb-24 bg-gray-100">
         <Head>
             <meta name="viewport" content="initial-scale=1.0, width=device-width" />
             <meta
@@ -15,7 +15,7 @@ export default function Layout({ children, home }) {
             />
             <meta name="og:title" content={siteTitle} />
         </Head>
-        <header className="flex flex-col items-center justify-center">
+        <header className="flex flex-col items-center justify-center py-4">
             {home ? (
             <>
                 <img
@@ -31,7 +31,7 @@ export default function Layout({ children, home }) {
                 <a>
                     <img
                     src="/images/profile.jpg"
-                    className="rounded-full w-32"
+                    className="rounded-full w-16"
                     alt={name}
                     />
                 </a>
@@ -39,7 +39,7 @@ export default function Layout({ children, home }) {
             </>
             )}
         </header>
-        <main>{children}</main>
+        <main className="markdown">{children}</main>
     </div>
     )
 }
