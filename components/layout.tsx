@@ -39,7 +39,7 @@ export default function Layout({ children, home }: { children: React.ReactNode, 
             </>
             )}
         </header>
-        <main className="markdown">{children}</main>
+        <main className="prose prose-sm sm:prose lg:prose-lg xl:prose-xl mx-auto">{children}</main>
     </div>
     )
 }
