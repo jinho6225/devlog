@@ -4,7 +4,7 @@ import Link from 'next/link'
 const name = 'Jinho6225'
 export const siteTitle = 'Devlog'
 
-export default function Layout({ children, home }) {
+export default function Layout({ children, home }: { children: React.ReactNode, home?: boolean }) {
     return (
     <div className="max-w-5xl py-4 px-4 mx-auto mt-12 mb-24 bg-gray-100">
         <Head>
