@@ -6,7 +6,7 @@ export const siteTitle = 'Devlog'
 
 export default function Layout({ children, home }) {
     return (
-    <div className="max-w-3xl py-4 px-4 mx-auto mt-12 mb-24 bg-gray-100">
+    <div className="max-w-5xl py-4 px-4 mx-auto mt-12 mb-24 bg-gray-100">
         <Head>
             <meta name="viewport" content="initial-scale=1.0, width=device-width" />
             <meta
