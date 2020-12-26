@@ -1,4 +1,6 @@
 import Head from 'next/head'
+import Link from 'next/link'
+import Date from '../components/date'
 import Layout, { siteTitle } from '../components/layout'
 import { getSortedPostsData } from '../lib/posts'
 
@@ -12,15 +14,16 @@ export default function IndexPage({ allPostsData }) {
         <p className="text-2xl font-medium mt-4">Write, Record Anything that will be History</p>
       </section>
       <section className="mt-12">
-        <h2 className="text-xl font-medium m-4">Blog</h2>
+        <h2 className="text-xl font-medium m-4">{siteTitle}</h2>
         <ul className="m-4">
           {allPostsData.map(({ id, date, title }) => (
-            <li className="m-4" key={id}>
-              {title}
-              <br />
-              {id}
-              <br />
-              {date}
+            <li className="m-4 text-lg" key={id}>
+              <Link href={`/posts/${id}`}>
+                <a href="#">{title}</a>
+              </Link>
+              <div>
+                <Date dateString={date} />
+              </div>
             </li>
           ))}
         </ul>

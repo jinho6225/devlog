@@ -1,16 +1,21 @@
+import Head from "next/head";
+import Date from "../../components/date";
 import Layout from "../../components/layout";
 import { getAllPostIds, getPostData } from "../../lib/posts";
 
 export default function Post({ postData }) {
     return (
-      <Layout >
-        {postData.title}
-        <br />
-        {postData.id}
-        <br />
-        {postData.date}
-        <br />
-        <div className="my-4" dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
+      <Layout>
+        <Head>
+            <title>{postData.title}</title>
+        </Head>
+        <article>
+            <h2>{postData.title}</h2>
+            <div>
+                <Date dateString={postData.date} />
+            </div>
+            <div className="my-4" dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
+        </article>
       </Layout>
     )
   }
