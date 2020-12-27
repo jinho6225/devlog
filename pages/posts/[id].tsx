@@ -6,6 +6,11 @@ import { GetStaticProps, GetStaticPaths } from 'next'
 import Link from "next/link";
 import { HiOutlineHome } from "react-icons/hi";
 import ReactMarkdown from "react-markdown/with-html";
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+
+const CodeBlock = ({ language, value }) => {
+  return <SyntaxHighlighter language={language}>{value}</SyntaxHighlighter>;
+};
 
 export default function Post({ postData }: { postData: { title: string, date: string, contentHtml: string } }) {
     return (
@@ -13,31 +18,34 @@ export default function Post({ postData }: { postData: { title: string, date: st
         <Head>
             <title>{postData.title}</title>
         </Head>
-        <article>
-            <div className="text-3xl font-bold mb-4">{postData.title}</div>
+        <article className="mb-4">
+            <div className="text-5xl font-bold mb-4">{postData.title}</div>
             <div className="flex items-center justify-between">
                 <div className="flex items-center">
                   <Link href='/'>
                     <a>
                         <img
                         src="/images/profile.jpg"
-                        className="rounded-full w-10 mr-4"
+                        className="rounded-full w-10 mb-0 mr-4"
                         alt="mini_profile"
                         />
                     </a>
                   </Link>
                   <Date dateString={postData.date} />
                 </div>
-                <div>
+                <div className="">
                   <Link href='/'>
-                    <span className="cursor-pointer"><HiOutlineHome className="text-3xl"/></span>
+                    <span className="cursor-pointer flex items-center justify-between"><HiOutlineHome className="text-3xl"/></span>
                   </Link>
                 </div>                
             </div>
-            {/* <div className="my-6" dangerouslySetInnerHTML={{ __html: postData.contentHtml }} /> */}
         </article>
+        <hr/>
         <article>
-            <ReactMarkdown escapeHtml={false} source={postData.contentHtml} />
+            <ReactMarkdown 
+              children={postData.contentHtml} 
+              renderers={{ code: CodeBlock }}  
+            />
         </article>
       </Layout>
     )

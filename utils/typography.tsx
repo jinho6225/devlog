@@ -1,22 +1,22 @@
-import Typography from "typography";
-import SutroTheme from "typography-theme-sutro";
+import Typography from 'typography'
+import sutroTheme from 'typography-theme-sutro'
 
-delete SutroTheme.googleFonts;
+const typography = new Typography(sutroTheme)
 
-SutroTheme.overrideThemeStyles = ({ rhythm }, options) => ({
+sutroTheme.overrideThemeStyles = ({ rhythm }, options) => ({
   "h1,h2,h3,h4,h5,h6": {
     marginTop: rhythm(1 / 2),
   },
   h1: {
-    fontWeight: 900,
+    fontWeight: 800,
     letterSpacing: "-1px",
   },
 });
-SutroTheme.scaleRatio = 5 / 2;
+sutroTheme.scaleRatio = 5 / 2;
 
 // Hot reload typography in development.
 if (process.env.NODE_ENV !== `production`) {
-    Typography.injectStyles();
+  typography.injectStyles();
 }
 
-export default Typography;
+export default typography;
