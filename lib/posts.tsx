@@ -21,36 +21,36 @@ export function getAllPostIds() {
 export async function getPostData(id: string) {
     const fullPath = path.join(postsDirectory, `${id}.md`)
     const fileContents = fs.readFileSync(fullPath, 'utf8')
-  
+
     const matterResult = matter(fileContents)
-  
-    const processedContent = await remark()
-      .use(html)
-      .process(matterResult.content)
-    const contentHtml = processedContent.toString()
-  
+
+    // const processedContent = await remark()
+    //     .use(html)
+    //     .process(matterResult.content)
+    const contentHtml = `# ${matterResult.data.title}\n${matterResult.content}`
+
     return {
-      id,
-      contentHtml,
-      ...(matterResult.data as { date: string; title: string })
+        id,
+        contentHtml,
+        ...(matterResult.data as { date: string; title: string; discription: string })
     }
-  }
+}
 
 export function getSortedPostsData() {
     const fileNames = fs.readdirSync(postsDirectory)
     const allPostsData = fileNames.map(fileName => {
         const id = fileName.split('.md')[0]
-
         const fullPath = path.join(postsDirectory, fileName)
+
         const fileContents = fs.readFileSync(fullPath, 'utf8')
         const matterResult = matter(fileContents)
 
         return {
             id,
-            ...(matterResult.data as { date: string, title: string })
+            ...(matterResult.data as { date: string, title: string, description: string })
         }
     })
-
+    
     return allPostsData.sort((a, b) => {
         if (a.date < b.date) {
             return 1

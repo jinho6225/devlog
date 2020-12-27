@@ -6,7 +6,7 @@ import { getSortedPostsData } from '../lib/posts'
 import { GetStaticProps } from 'next'
 
 export default function IndexPage({ allPostsData }: { allPostsData: 
-  {date: string, title: string, id: string}[]
+  {date: string, title: string, id: string, description: string}[]
 }) {
   return (
     <Layout home>
@@ -17,17 +17,17 @@ export default function IndexPage({ allPostsData }: { allPostsData:
         <p className="text-2xl font-medium mt-4">Write anything that will be your personal history</p>
         <p className="text-xl mt-4">One of the great benefits in writing your personal history is that it gives you a chance to tell yourself what you have accomplished and learned. You almost have the chance to relive your life all over again.</p>
       </section>
-      <section className="mt-12">
-        <h2 className="text-xl font-medium">{siteTitle}</h2>
+      <section className="mt-8">
         <ul className="m-4">
-          {allPostsData.map(({ id, date, title }) => (
-            <li className="text-lg" key={id}>
-              <Link href={`/posts/${id}`}>
-                <a href="#">{title}</a>
-              </Link>
-              <div>
-                <Date dateString={date} />
-              </div>
+          {allPostsData.map(({ id, date, title, description }) => (
+            <li className="mb-4" key={id}>
+                  <Link href={`/posts/${id}`}>
+                    <a className="text-3xl font-semibold text-yellow-600">
+                      {title}
+                    </a>
+                  </Link>
+                  <p className=" text-sm">{date}</p>
+                  <p className="">{description}</p>
             </li>
           ))}
         </ul>
