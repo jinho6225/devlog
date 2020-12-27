@@ -3,15 +3,25 @@ module.exports = {
   darkMode: 'media', // 'media' or 'class'
   theme: {
     extend: {
-      colors: {
-        'accent-1': '#333',
-      },
+      typography: {
+        DEFAULT: {
+          css: {
+            color: '#333',
+            a: {
+              color: '#3182ce',
+              '&:hover': {
+                color: '#2c5282',
+              },
+            },
+          },
+        },
+      }
     },
   },
   variants: {
     extend: {},
   },
   plugins: [
-    require('@tailwindcss/typography'),
-    // ...
-  ],}
+        require('@tailwindcss/typography'),
+  ],
+}

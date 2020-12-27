@@ -18,10 +18,10 @@ export default function IndexPage({ allPostsData }: { allPostsData:
         <p className="text-xl mt-4">One of the great benefits in writing your personal history is that it gives you a chance to tell yourself what you have accomplished and learned. You almost have the chance to relive your life all over again.</p>
       </section>
       <section className="mt-12">
-        <h2 className="text-xl font-medium m-4">{siteTitle}</h2>
+        <h2 className="text-xl font-medium">{siteTitle}</h2>
         <ul className="m-4">
           {allPostsData.map(({ id, date, title }) => (
-            <li className="m-4 text-lg" key={id}>
+            <li className="text-lg" key={id}>
               <Link href={`/posts/${id}`}>
                 <a href="#">{title}</a>
               </Link>
