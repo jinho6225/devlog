@@ -35,7 +35,7 @@ export default function Layout({ children, home }: { children: React.ReactNode, 
             <header className="flex flex-col items-center justify-center">
                 {header}
             </header>
-            <main className="container mx-auto my-4">{children}</main>
+            <main className="container mx-auto my-4 px-4">{children}</main>
             <footer className="flex flex-col items-center justify-center">
                     <span>© 2020, Built with{" "}<a href="https://nextjs.org/">Next.js</a> &#128293;</span>
             </footer>
