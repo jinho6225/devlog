@@ -6,7 +6,7 @@ export default class MyDocument extends Document {
   
   render() {
     return (
-      <Html>
+      <html>
         <Head>
           <TypographyStyle typography={typography} />
         </Head>
@@ -14,7 +14,7 @@ export default class MyDocument extends Document {
           <Main />
           <NextScript />
         </body>
-      </Html>
+      </html>
     );
   }
 }
