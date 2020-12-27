@@ -23,7 +23,7 @@ export default function Layout({ children, home }: { children: React.ReactNode, 
         );
 
     return (
-        <div className="max-w-5xl py-8 px-4 mx-auto mt-12 mb-24 bg-yellow-50">
+        <div className="max-w-3xl py-8 px-4 mx-auto mt-12 mb-24 bg-yellow-50">
             <Head>
                 <meta name="viewport" content="initial-scale=1.0, width=device-width" />
                 <meta
@@ -37,7 +37,7 @@ export default function Layout({ children, home }: { children: React.ReactNode, 
             </header>
             <main className="container mx-auto my-4">{children}</main>
             <footer className="flex flex-col items-center justify-center">
-                    <span>© {new Date().getFullYear()}, Built with{" "}<a href="https://nextjs.org/">Next.js</a> &#128293;</span>
+                    <span>© 2020, Built with{" "}<a href="https://nextjs.org/">Next.js</a> &#128293;</span>
             </footer>
         </div>
     )
